@@ -1,23 +1,14 @@
 
-my $contents = 'input-day-4.txt'.IO.slurp;
-
+my @passports = 'input-day-4.txt'.IO.slurp.split(/ \n\n /);
 my @valid-fields = <byr iyr eyr hgt hcl ecl pid>;
-
-my @passports = $contents.split(/ \n\n /);
 my $npassports = 0;
 
 sub valid-fields(%val --> Bool)
 {
     sub check-hgt($s --> Bool) {
-        my Bool $res = False;
-        if $s ~~ / (\d+) ('cm'||'in') / {
-            my ($n, $v) = @($0.Int, $1.Str);
-            given ($v) {
-                when 'cm' { $res = 149 < $n < 194; }
-                when 'in' { $res = 58 < $n < 77; }
-            }
-        }
-        $res;
+        my ($num, $val) = $s.comb: $s.chars - 2;
+        so $val eq 'cm' && 149 < $num.Int < 194
+           || $val eq 'in' && 58 < $num.Int < 77;
     }
 
     so  1919 < %val<byr> < 2003
