@@ -33,30 +33,24 @@ for @numbers.kv -> $ind, $val {
     }
 }
 
-LABEL:
-for 0..$bad-ind - 2 {
-    my $start-ind = $_;
-    my $end-ind = $start-ind + 1;
-    loop {
-        if $end-ind > $bad-ind - 1 {
-            die('Error: ' ~ $?LINE);
-        }
-        my $sum = @items[$start-ind..$end-ind].sum;
-        if $sum < $bad-num {
-            $end-ind += 1;
-            next;
-        }
-        if $sum > $bad-num {
-            $start-ind += 1;
-            $end-ind = $start-ind + 1;
-            last;
-        }
-        if $sum == $bad-num {
-            my ($min, $max) = @items[$start-ind..$end-ind].sort()[0,*-1];
-            say 'Answer: ', $min + $max, "\n";
-            last LABEL;
-        };
+my $start-ind = 0;
+my $end-ind = 1;
+
+while $start-ind < $bad-ind - 2 {
+    my $sum = @items[$start-ind..$end-ind].sum;
+    if $sum < $bad-num {
+        $end-ind += 1;
+        next;
     }
+    elsif $sum > $bad-num {
+        $start-ind += 1;
+        next;
+    }
+    else {
+        my ($min, $max) = @items[$start-ind..$end-ind].sort()[0,*-1];
+        say 'Answer: ', $min + $max;
+        last;
+    };
 }
 
 # Answer: 16107959
