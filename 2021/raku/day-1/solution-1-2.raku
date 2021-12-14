@@ -42,12 +42,13 @@ G: 769 (увеличено)
 Рассмотрим суммы скользящего окна с тремя измерениями. На сколько сумм больше предыдущей суммы?
 )
 
-# my @items = $?FILE.IO.dirname.IO.add('input-day-1-test.txt').slurp.trim.lines;
-my @items = $?FILE.IO.dirname.IO.add('input-day-1.txt').slurp.trim.lines;
+# my $filename = 'input-day-1-test.txt';
+my $filename = 'input-day-1.txt';
+
+my @items = $?FILE.IO.dirname.IO.add($filename).slurp.trim.lines;
 # say @items;
 
 my $res = @items.rotor(3 => -2).map({ $_.sum }).rotor(2 => -1).map({ $_[0] < $_[1] })>>.Int.sum;
-
 
 say 'Answer: ', $res; # Answer: 5 (test)
                       # Answer: 1653

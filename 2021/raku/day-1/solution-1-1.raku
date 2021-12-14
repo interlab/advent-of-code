@@ -1,7 +1,9 @@
 #!/usr/bin/env raku
 
-# my @items = $?FILE.IO.dirname.IO.add('input-day-1-test.txt').slurp.trim.lines;
-my @items = $?FILE.IO.dirname.IO.add('input-day-1.txt').slurp.trim.lines;
+# my $filename = 'input-day-1-test.txt';
+my $filename = 'input-day-1.txt';
+
+my @items = $?FILE.IO.dirname.IO.add($filename).slurp.trim.lines;
 # say @items;
 
 my $res = @items.&{ $_ Z< .skip }>>.Int.sum;
