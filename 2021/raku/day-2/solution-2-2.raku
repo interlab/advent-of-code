@@ -39,17 +39,15 @@ my $filename = 'input-day-2.txt';
 my @items = $?FILE.IO.dirname.IO.add($filename).slurp.trim.lines;
 #say @items;
 
-my $res = 0;
-my $x = 0;
-my $y = 0;
-my $z = 0;
+my ($x, $y, $z) = 0, 0, 0;
 
 for @items {
-    my ($it, $num) = $_.split(' ').map(-> $s, $n { $s, $n.Int }).flat;
+    my ($it, $num) = $_.split(' ');
+    $num .= Int;
     given $it {
-        when / 'forward' / { $x += $num; $y += $z * $num; }
-        when / 'down' / { $z += $num; }
-        when / 'up' / { $z -= $num; }
+        when 'forward' { $x += $num; $y += $z * $num; }
+        when 'down' { $z += $num; }
+        when 'up' { $z -= $num; }
     }
     # say $it, ' ', $num, ' x:', $x, ' y:', $y, ' z:', $z;
 }
