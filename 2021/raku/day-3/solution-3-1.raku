@@ -58,11 +58,11 @@ my $max = @items[0].elems - 1;
 my ($zero, $one) = 0, 0;
 my (@gamma, @epsilon, $g, $e);
 
-for 0 .. $max -> $n2 {
-    for 0 .. $nlines -> $n1 {
-        given @items[$n1][$n2] {
-            when 0 { $zero++; }
-            when 1 { $one++; }
+for 0..$max -> $n2 {
+    for 0..$nlines -> $n1 {
+        with @items[$n1][$n2] {
+            $zero += $_ +& 1;
+            $one += $_ +^ 1;
         }
     }
     @gamma[$n2] = $zero > $one ?? 0 !! 1;
@@ -71,13 +71,10 @@ for 0 .. $max -> $n2 {
     $zero = 0;
 }
 
-#say @gamma, ' ', @gamma.join('').parse-base(2);
-#say @epsilon, ' ', @epsilon.join('').parse-base(2);
-
 $g = @gamma.join('').parse-base(2);
 $e = @epsilon.join('').parse-base(2);
 
 say 'Answer: ', $g * $e; # Answer (test): 198
                          # Answer: 3009600
 
-say 'Time execution: ', now - INIT now;
+say 'Time execution: ', now - INIT now; # 0.1158995

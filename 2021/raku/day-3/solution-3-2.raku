@@ -59,52 +59,47 @@
 my $filename = 'input-day-3.txt';
 
 my @lines = $?FILE.IO.dirname.IO.add($filename).slurp.trim.lines;
-my @items1 = @lines.map(*.comb.map(*.Int));
-my @items2 = @items1;
-my $max = @items1[0].elems - 1;
-my ($one1, $zero1, $one2, $zero2);
-my ($elems1, $elems2) = @items1.elems, @items1.elems;
+my @items = @lines.map(*.comb.map(*.Int));
 
-for 0 .. $max -> $n2 {
-    if $elems1 > 1 {
-        for 0 .. $elems1-1 -> $n1 {
-            my $it = @items1[$n1][$n2];
-            $one1 += $it +& 1;
-            $zero1 += $it +^ 1;
+my $cond_oxy = -> $zero, $one { $one >= $zero ?? 1 !! 0 };
+my $cond_co2 = -> $zero, $one { $zero <= $one ?? 0 !! 1 };
+
+sub eachitems(@items1 is copy, &cond) {
+    my $max = @items1[0].elems - 1;
+    my $nelems = @items1.elems;
+    my ($zero, $one) = 0, 0;
+    for 0..$max -> $n2 {
+        for 0..$nelems-1 -> $n1 {
+            with @items1[$n1][$n2] {
+                $one += $_ +& 1;
+                $zero += $_ +^ 1;
+            }
         }
-        my $oxy = $one1 >= $zero1 ?? 1 !! 0;
+        # if ($zero|$one > 0) {
+        my $res = &cond($zero, $one);
         for @items1.kv -> $i, $v {
-            if $v[$n2] != $oxy {
+            if $v[$n2] != $res {
                 @items1[$i] = Nil;
+                $nelems -= 1;
             }
         }
         @items1 = @items1.grep(*.so);
-        $elems1 = @items1.elems;
-        $one1 = 0;
-        $zero1 = 0;
-    }
-
-    if $elems2 > 1 {
-        for 0 .. $elems2-1 -> $n1 {
-            my $it = @items2[$n1][$n2];
-            $one2 += $it +& 1;
-            $zero2 += $it +^ 1;
+        # }
+        $one = 0;
+        $zero = 0;
+        if $nelems == 1 {
+            # say $n2, ' ', $max;
+            return @items1;
         }
-        my $co2 = $zero2 <= $one2 ?? 0 !! 1;
-        for @items2.kv -> $i, $v {
-            if $v[$n2] != $co2 {
-                @items2[$i] = Nil;
-            }
-        }
-        @items2 = @items2.grep(*.so);
-        $elems2 = @items2.elems;
-        $one2 = 0;
-        $zero2 = 0;
     }
+    return @items1;
 }
 
-say 'Answer: ', @items1[0].join.parse-base(2) * @items2[0].join.parse-base(2);
+my $oxy = eachitems(@items, $cond_oxy)[0].join.parse-base(2);
+my $co2 = eachitems(@items, $cond_co2)[0].join.parse-base(2);
+
+say 'Answer: ', $oxy * $co2;
 # Answer (test): 230
 # Answer: 6940518
 
-say 'Time execution: ', now - INIT now;
+say 'Time execution: ', now - INIT now; # 0.0847073
