@@ -1,0 +1,20 @@
+
+--- Part Two ---
+Now, given the same instructions, find the position of the first character that causes him to enter the basement (floor -1). The first character in the instructions has position 1, the second character has position 2, and so on.
+
+For example:
+
+) causes him to enter the basement at character position 1.
+()()) causes him to enter the basement at character position 5.
+What is the position of the character that causes Santa to first enter the basement?
+
+--- Часть вторая ---
+Теперь, получив те же инструкции, найдите положение первого персонажа, 
+которое заставляет его войти в подвал (этаж -1). 
+Первый символ в инструкциях имеет позицию 1, второй символ имеет позицию 2 и так далее.
+
+Например:
+
+) заставляет его войти в подвал на позиции персонажа 1.
+()()) заставляет его войти в подвал в позиции персонажа 5.
+Какова позиция персонажа, которая заставляет Санту сначала войти в подвал?

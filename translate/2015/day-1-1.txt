@@ -1,0 +1,52 @@
+
+--- Day 1: Not Quite Lisp ---
+Santa was hoping for a white Christmas, but his weather machine's "snow" function is powered by stars, and he's fresh out! To save Christmas, he needs you to collect fifty stars by December 25th.
+
+Collect stars by helping Santa solve puzzles. Two puzzles will be made available on each day in the Advent calendar; the second puzzle is unlocked when you complete the first. Each puzzle grants one star. Good luck!
+
+Here's an easy puzzle to warm you up.
+
+Santa is trying to deliver presents in a large apartment building, but he can't find the right floor - the directions he got are a little confusing. He starts on the ground floor (floor 0) and then follows the instructions one character at a time.
+
+An opening parenthesis, (, means he should go up one floor, and a closing parenthesis, ), means he should go down one floor.
+
+The apartment building is very tall, and the basement is very deep; he will never find the top or bottom floors.
+
+For example:
+
+(()) and ()() both result in floor 0.
+((( and (()(()( both result in floor 3.
+))((((( also results in floor 3.
+()) and ))( both result in floor -1 (the first basement level).
+))) and )())()) both result in floor -3.
+To what floor do the instructions take Santa?
+
+--- День 1: Не совсем шепелявый ---
+Санта надеялся на белое Рождество, но функция "снега" в его метеорологической машине 
+работает от звезд, и он только что вышел! Чтобы спасти Рождество, ему нужно, 
+чтобы вы собрали пятьдесят звезд к 25 декабря.
+
+Собирайте звезды, помогая Санте решать головоломки. Две головоломки будут доступны 
+в каждый день адвент-календаря; вторая головоломка будет разблокирована, 
+когда вы завершите первую. Каждая головоломка дает одну звезду. Удачи!
+
+Вот простая головоломка, которая разогреет вас.
+
+Санта пытается доставить подарки в большой многоквартирный дом, 
+но он не может найти нужный этаж - полученные им указания немного сбивают с толку. 
+Он начинает с первого этажа (этаж 0), а затем следует инструкциям по одному символу за раз.
+
+Открывающая скобка, (, означает, что он должен подняться на один этаж, а закрывающая скобка, ), 
+означает, что он должен спуститься на один этаж.
+
+Многоквартирный дом очень высокий, а подвал очень глубокий; он никогда не найдет ни верхний, 
+ни нижний этажи.
+
+Например:
+
+(()) и ()() оба приводят к этажу 0.
+((( и (()(()( оба приводят к 3-му этажу.
+))((((( также приводит к 3-му этажу.
+()) и ))( оба приводят к этажу -1 (первый подвальный уровень).
+))) и )())()) оба приводят к полу -3.
+На какой этаж ведут инструкции Санты?
