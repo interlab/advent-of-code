@@ -1,0 +1,38 @@
+
+--- Day 3: Perfectly Spherical Houses in a Vacuum ---
+Santa is delivering presents to an infinite two-dimensional grid of houses.
+
+He begins by delivering a present to the house at his starting location, 
+and then an elf at the North Pole calls him via radio and tells him where to move next. 
+Moves are always exactly one house to the north (^), south (v), east (>), or west (<). 
+After each move, he delivers another present to the house at his new location.
+
+However, the elf back at the north pole has had a little too much eggnog, 
+and so his directions are a little off, and Santa ends up visiting 
+some houses more than once. How many houses receive at least one present?
+
+For example:
+
+> delivers presents to 2 houses: one at the starting location, and one to the east.
+^>v< delivers presents to 4 houses in a square, including twice to the house at his starting/ending location.
+^v^v^v^v^v delivers a bunch of presents to some very lucky children at only 2 houses.
+
+--- День 3: Идеально сферические дома в вакууме ---
+Санта доставляет подарки в бесконечную двумерную сетку домов.
+
+Он начинает с того, что доставляет подарок в дом на исходном месте, 
+а затем эльф на Северном полюсе звонит ему по радио и сообщает, 
+куда двигаться дальше. Ходы всегда ровно на один дом севернее (^), 
+юг (v), восток (>) или запад (<). После каждого переезда он доставляет 
+еще один подарок в дом на своем новом месте.
+
+Однако эльф, вернувшийся на северный полюс, немного перебрал гоголь-моголя, 
+и поэтому его указания немного сбились, и Санта в итоге посещает некоторые 
+дома по нескольку раз. Сколько домов получат хотя бы один подарок?
+
+Например:
+
+> доставляет подарки в 2 дома: один в начальной локации и один на востоке.
+^>v< доставляет подарки в 4 дома в квадрате, в том числе дважды в дом 
+в его начальном / конечном местоположении.
+^v^v^v^v^v доставляет кучу подарков некоторым очень удачливым детям всего в 2 домах.
