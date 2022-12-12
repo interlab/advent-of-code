@@ -1,0 +1,4 @@
+
+Now find one that starts with six zeroes.
+
+Теперь найдите тот, который начинается с шести нулей.

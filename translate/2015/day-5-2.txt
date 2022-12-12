@@ -1,0 +1,40 @@
+
+--- Part Two ---
+Realizing the error of his ways, Santa has switched to a better model of determining whether 
+a string is naughty or nice. None of the old rules apply, as they are all clearly ridiculous.
+
+Now, a nice string is one with all of the following properties:
+
+It contains a pair of any two letters that appears at least twice in the string without overlapping, 
+like xyxy (xy) or aabcdefgaa (aa), but not like aaa (aa, but it overlaps).
+It contains at least one letter which repeats with exactly one letter between them, like xyx, abcdefeghi (efe), or even aaa.
+For example:
+
+qjhvhtzxzqqjkmpb is nice because is has a pair that appears twice (qj) and a letter that repeats 
+with exactly one letter between them (zxz).
+xxyxx is nice because it has a pair that appears twice and a letter that repeats with one between, 
+even though the letters used by each rule overlap.
+uurcxstgmygtbstg is naughty because it has a pair (tg) but no repeat with a single letter between them.
+ieodomkazucvgmuy is naughty because it has a repeating letter with one between (odo), but no pair that appears twice.
+How many strings are nice under these new rules?
+
+--- Часть вторая ---
+Осознав ошибочность своего пути, Санта переключился на лучшую модель определения того, 
+является ли веревочка непослушной или милой. Ни одно из старых правил не применяется, поскольку все они явно нелепы.
+
+Теперь хорошая строка - это строка со всеми следующими свойствами:
+
+Он содержит пару любых двух букв, которые появляются по крайней мере дважды в строке без перекрытия, 
+например xyxy (xy) или aabcdefgaa (aa), но не как aaa (aa, но они перекрываются).
+Он содержит по крайней мере одну букву, которая повторяется ровно с одной буквой между ними, 
+например xyx, abcdefeghi (efe) или даже aaa.
+Например:
+
+qjhvhtzxzqqjkmpb хорош тем, что в нем есть пара, которая появляется дважды (qj), и буква, 
+которая повторяется ровно с одной буквой между ними (zxz).
+xxyxx хорош тем, что в нем есть пара, которая появляется дважды, и буква, которая повторяется 
+с одним промежутком, даже если буквы, используемые каждым правилом, перекрываются.
+uurcxstgmygtbstg непослушен, потому что у него есть пара (tg), но нет повтора с одной буквой между ними.
+ieodomkazucvgmuy непослушен, потому что в нем есть повторяющаяся буква с одним между (odo), 
+но нет пары, которая появляется дважды.
+Сколько строк приемлемо в соответствии с этими новыми правилами?

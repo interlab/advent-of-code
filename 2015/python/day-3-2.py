@@ -15,7 +15,7 @@ with open(filepath) as f:
 # data = '^v'
 # data = '^>v<'
 # data = '^v^v^v^v^v'
-    
+
 for c in data:
     if i % 2 == 1:
         santa_type = 0
@@ -41,7 +41,7 @@ for c in data:
         santa[santa_type][(x,y)] += 1
     except KeyError:
         santa[santa_type][(x,y)] = 1
-    
+
     i += 1
 
 
